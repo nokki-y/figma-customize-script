@@ -1,15 +1,19 @@
 module.exports = {
   root: true,
   env: {
-    es2021: true
+    es2023: true,
+    node: true,
   },
-  extends: [
-    "eslint:recommended",
-    "airbnb-base",
-    "plugin:prettier/recommended"
-  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 14,
+    sourceType: 'module',
+    project: './tsconfig.json',
+  },
+  plugins: ['prettier', '@typescript-eslint'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
   rules: {
-    "no-console": "off"
+    'no-console': 'off',
   },
-  ignorePatterns: ["/node_modules/", "/dist/"]
+  ignorePatterns: ['/node_modules/', '/dist/'],
 };
